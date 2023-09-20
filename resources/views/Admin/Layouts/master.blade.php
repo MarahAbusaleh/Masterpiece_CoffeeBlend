@@ -2,4 +2,6 @@
 
 @yield('content')
 
+@stack('scripts')
+
 @include('Admin.Layouts.footer')

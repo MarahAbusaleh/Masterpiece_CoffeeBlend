@@ -17,14 +17,7 @@ return new class extends Migration
             $table->string('image');
             $table->float('price');
 
-            $table->unsignedBigInteger('menu_id');
-
             $table->timestamps();
-
-            $table->foreign('menu_id')
-                    ->references('id')
-                    ->on('menus')
-                    ->onDelete('cascade');
         });
     }
 

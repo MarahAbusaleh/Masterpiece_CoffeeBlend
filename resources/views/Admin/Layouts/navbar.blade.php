@@ -8,6 +8,10 @@
     <link rel="shortcut icon" type="image/png" href="../assets/images/logos/SClogo.png" />
     <link rel="stylesheet" href="../assets/css/styles.min.css" />
     <link ret="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 </head>
 
@@ -46,7 +50,7 @@
                 <span class="hide-menu">PAGES</span>
                 </li>
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="./menu.html" aria-expanded="false">
+                <a class="sidebar-link" href="{{ route('menu.index') }}" aria-expanded="false">
                     <span>
                     <i class="ti ti-cup"></i>
                     </span>
@@ -54,7 +58,7 @@
                 </a>
                 </li>
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="./categories.html" aria-expanded="false">
+                <a class="sidebar-link" href="{{ route('category.index') }}" aria-expanded="false">
                     <span>
                     <i class="ti ti-category"></i>
                     </span>
@@ -63,7 +67,7 @@
                 </a>
                 </li>
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="./products.html" aria-expanded="false">
+                <a class="sidebar-link" href="{{ route('product.index') }}" aria-expanded="false">
                     <span>
                     <i class="ti ti-shopping-cart"></i>
                     </span>
@@ -71,7 +75,7 @@
                 </a>
                 </li>
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="./uesrs.html" aria-expanded="false">
+                <a class="sidebar-link" href="{{ route('user.index') }}" aria-expanded="false">
                     <span>
                     <i class="ti ti-users"></i>
                     </span>
@@ -79,37 +83,37 @@
                 </a>
                 </li>
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="./orders.html" aria-expanded="false">
+                <a class="sidebar-link" href="{{ route('order.index') }}" aria-expanded="false">
                     <span>
                     <i class="ti ti-list"></i>
                     </span>
                     <span class="hide-menu">Orders</span>
                 </a>
                 </li>
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                 <a class="sidebar-link" href="./admins.html" aria-expanded="false">
                     <span>
                     <i class="ti ti-user"></i>
                     </span>
                     <span class="hide-menu">Admins</span>
                 </a>
-                </li>
+                </li> --}}
                 <li class="sidebar-item">
-                <a class="sidebar-link" href="./comments.html" aria-expanded="false">
+                <a class="sidebar-link" href="{{ route('comment.index') }}" aria-expanded="false">
                     <span>
                     <i class="ti ti-messages"></i>
                     </span>
                     <span class="hide-menu">Comments</span>
                 </a>
                 </li>
-                <li class="sidebar-item">
-                <a class="sidebar-link" href="./contact.html" aria-expanded="false">
+                {{-- <li class="sidebar-item">
+                <a class="sidebar-link" href="" aria-expanded="false">
                     <span>
                     <i class="ti ti-message-2"></i>
                     </span>
                     <span class="hide-menu">Contact</span>
                 </a>
-                </li>            
+                </li>             --}}
             </ul>
             </nav>
             <!-- End Sidebar navigation -->

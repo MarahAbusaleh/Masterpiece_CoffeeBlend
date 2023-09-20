@@ -9,6 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $table = "comments";
+
     //With User Model (M:1)
     public function user() 
     {

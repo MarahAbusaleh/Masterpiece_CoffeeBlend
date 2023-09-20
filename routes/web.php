@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +22,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-// Route::get('/', function () {
-//     return view('Admin.Pages.category.index');
-// });
+Route::get('/', function () {
+    return view('Admin.Pages.category.create');
+});
 
-// Route::get('/', [CategoryController::class, 'index']);
+Route::resource('category', CategoryController::class);
+
+Route::resource('product', ProductController::class);
+
+Route::resource('comment', CommentController::class);
+
+Route::resource('menu', MenuController::class);
+
+Route::resource('order', OrderController::class);
+
+Route::resource('user', UserController::class);

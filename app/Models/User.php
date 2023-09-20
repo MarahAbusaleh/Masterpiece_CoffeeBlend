@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = "users";
+
     protected $fillable = [
         'name',
         'email',
@@ -46,9 +48,9 @@ class User extends Authenticatable
     }
 
     //With Cart Model (1:M)
-    public function carts() 
+    public function cart() 
     {
-        return $this->hasMany(Cart::class);
+        return $this->hasOne(Cart::class);
     }
 
     //With Order Model (1:M)
