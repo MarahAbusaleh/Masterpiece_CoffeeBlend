@@ -22,4 +22,16 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+
+    //With Discount Model (M:1)
+    public function discount() 
+    {
+        return $this->belongsTo(Discount::class);
+    }
+
+    //With Cart Model (1:1)
+    public function cart() 
+    {
+        return $this->belongsTo(Cart::class);
+    }
 }

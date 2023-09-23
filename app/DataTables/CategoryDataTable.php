@@ -18,15 +18,25 @@ class CategoryDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
-                $editBtn = "<a href='" . route('category.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
+                $editBtn = "<a href='" . route('category.edit', $query->id) . "' class='btn btn-success'><i class='far fa-edit'></i></a>";
                 $deleteBtn = "<a href='" . route('category.destroy', $query->id) . "' class='btn btn-danger my-2 delete-item'><i class='fas fa-trash-alt'></i></a>";
 
                 return $editBtn . $deleteBtn;
             })
-            ->addColumn('image', function ($query) {
-                return "<img width='100px' src='" . asset($query->image) . "'></img>";
+            ->addColumn('image1', function ($query) {
+                return "<img width='100px' src='" . asset($query->image1) . "'></img>";
             })
-            ->rawColumns(['action', 'image'])
+
+            ->addColumn('image2', function ($query) {
+                return "<img width='100px' src='" . asset($query->image2) . "'></img>";
+            })
+
+            ->addColumn('image3', function ($query) {
+                return "<img width='100px' src='" . asset($query->image3) . "'></img>";
+            })
+            
+            ->rawColumns(['action', 'image1', 'image2', 'image3'])
+
             ->setRowId('id');
     }
 

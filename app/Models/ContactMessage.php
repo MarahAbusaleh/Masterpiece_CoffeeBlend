@@ -9,9 +9,11 @@ class ContactMessage extends Model
 {
     use HasFactory;
 
-    //With User Model (M:1)
-    public function user() 
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
+    protected $table = 'contact_messages';
+
+    protected $fillable = [
+        'name',
+        'email',
+        'message'
+    ];
 }

@@ -10,22 +10,50 @@
                         <h3>Add Product</h3>
                         <br>
                         <br>
-                        <form>
+                        <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
-                                <label for="addedItemName" class="form-label">Name :</label>
-                                <input type="text" class="form-control" id="addedItemName" name="addedItemName">
+                                <label for="name" class="form-label">Name :</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                                @if ($errors->has('name'))
+                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <label for="addedItemPrice" class="form-label">Price :</label>
-                                <input type="text" class="form-control" id="addedItemPrice" name="addedItemPrice">
+                                <label for="price" class="form-label">Price :</label>
+                                <input type="text" class="form-control" id="price" name="price">
+                                @if ($errors->has('price'))
+                                    <span class="text-danger">{{ $errors->first('price') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <label for="addedItemDesc" class="form-label">Description :</label>
-                                <textarea class="form-control" id="addedItemDesc" name="addedItemDesc"></textarea>
+                                <label for="description" class="form-label">Description :</label>
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                                @if ($errors->has('description'))
+                                    <span class="text-danger">{{ $errors->first('description') }}</span>
+                                @endif
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="form-group col-md-6">
+                                    <label for="category">Category</label>
+                                    <select id="category" name="category" class="form-control">
+                                        <option value="">Select a Category:</option>
+                                        @foreach ($category as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @if ($errors->has('category'))
+                                    <span class="text-danger">{{ $errors->first('category') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <label for="addedItemIamge" class="form-label">Image :</label>
-                                <input type="file" class="form-control" id="addedItemImage" name="addedItemImage">
+                                <label for="image" class="form-label">Image :</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                                @if ($errors->has('image'))
+                                    <span class="text-danger">{{ $errors->first('image') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

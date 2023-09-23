@@ -11,6 +11,14 @@ class Product extends Model
 
     protected $table = "products";
 
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'image',
+        'category_id'
+    ];
+
     //With Category Model (M:1)
     public function category() 
     {
@@ -18,7 +26,7 @@ class Product extends Model
     }
 
     //With Cart Model (1:M)
-    public function cart() 
+    public function carts() 
     {
         return $this->hasMany(Cart::class);
     }
