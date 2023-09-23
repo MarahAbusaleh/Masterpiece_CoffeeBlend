@@ -15,6 +15,10 @@ return new class extends Migration
             $table->string('status');
 
             $table->unsignedBigInteger('user_id');
+            
+            $table->unsignedBigInteger('cart_id');
+
+            $table->unsignedBigInteger('discount_id');
 
             $table->unsignedBigInteger('cart_id');
 

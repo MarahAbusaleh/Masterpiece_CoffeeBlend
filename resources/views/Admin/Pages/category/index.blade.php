@@ -4,11 +4,11 @@
 
 
             <div class="container-fluid">
-
+                
                 @if (session('success'))
                     <div id="vola_message" class="alert alert-warning">{{ session('success') }}</div>
                 @endif
-                
+
                 <!--  Row 1 -->
                 <div class="row">
                     <h2>Categories</h2>
