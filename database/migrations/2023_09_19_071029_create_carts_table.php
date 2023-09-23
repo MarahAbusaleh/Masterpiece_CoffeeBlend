@@ -17,6 +17,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('product_id');
 
+            $table->unsignedBigInteger('menu_id');
+
             $table->timestamps();
 
             $table->foreign('user_id')
@@ -27,6 +29,11 @@ return new class extends Migration
             $table->foreign('product_id')
                     ->references('id')
                     ->on('products')
+                    ->onDelete('cascade');
+
+            $table->foreign('menu_id')
+                    ->references('id')
+                    ->on('menus')
                     ->onDelete('cascade');
         });
     }

@@ -9,11 +9,12 @@ class OrderItem extends Model
 {
     use HasFactory;
 
-    //With User Model (M:1)
-    public function user() 
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $table = 'order_items';
+
+    protected $fillable = [
+        'quantity',
+        'price'
+    ];
 
     //With Product Model (M:1)
     public function product() 

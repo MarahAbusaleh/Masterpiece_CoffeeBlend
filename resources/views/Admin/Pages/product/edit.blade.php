@@ -10,22 +10,36 @@
                         <h3>Edit Product</h3>
                         <br>
                         <br>
-                        <form>
+                        <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="mb-3">
-                                <label for="editedItemName" class="form-label">Name :</label>
-                                <input type="text" class="form-control" id="editedItemName" name="editedItemName">
+                                <label for="name" class="form-label">Name :</label>
+                                <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}">
+                                @if ($errors->has('name'))
+                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <label for="editedItemPrice" class="form-label">Price :</label>
-                                <input type="text" class="form-control" id="editedItemPrice" name="editedItemPrice">
+                                <label for="price" class="form-label">Price :</label>
+                                <input type="text" class="form-control" id="price" name="price" value="{{ $product->price }}">
+                                @if ($errors->has('price'))
+                                    <span class="text-danger">{{ $errors->first('price') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <label for="editedItemDesc" class="form-label">Description :</label>
-                                <textarea class="form-control" id="editedItemDesc" name="editedItemDesc"></textarea>
+                                <label for="description" class="form-label">Description :</label>
+                                <textarea class="form-control" id="description" name="description">{{ $product->description }}</textarea>
+                                @if ($errors->has('description'))
+                                    <span class="text-danger">{{ $errors->first('description') }}</span>
+                                @endif
                             </div>
                             <div class="mb-3">
-                                <label for="editedItemIamge" class="form-label">Image :</label>
-                                <input type="file" class="form-control" id="editedItemImage" name="editedItemImage">
+                                <label for="image" class="form-label">Image :</label>
+                                <input type="file" class="form-control" id="image" name="image">
+                                @if ($errors->has('image'))
+                                    <span class="text-danger">{{ $errors->first('image') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

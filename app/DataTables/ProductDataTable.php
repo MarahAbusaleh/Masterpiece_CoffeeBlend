@@ -19,14 +19,21 @@ class ProductDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function ($query) {
-                $editBtn = "<a href='" . route('category.edit', $query->id) . "' class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='" . route('category.destroy', $query->id) . "' class='btn btn-danger my-2 delete-item'><i class='fas fa-trash-alt'></i></a>";
+                $editBtn = "<a href='" . route('product.edit', $query->id) . "' class='btn btn-success'><i class='far fa-edit'></i></a>";
+                $deleteBtn = "<a href='" . route('product.destroy', $query->id) . "' class='btn btn-danger my-2 delete-item'><i class='fas fa-trash-alt'></i></a>";
 
                 return $editBtn . $deleteBtn;
             })
             ->addColumn('image', function ($query) {
                 return "<img width='100px' src='" . asset($query->image) . "'></img>";
             })
+
+            ->addColumn('category', function ($query) {
+                if ($query->category) {
+                    return $query->category->name;
+                }
+            })
+
             ->rawColumns(['action', 'image'])
             ->setRowId('id');
     }
@@ -65,7 +72,7 @@ class ProductDataTable extends DataTable
             Column::make('description'),
             Column::make('price'),
             Column::make('image'),
-            Column::make('category name'),
+            Column::make('category'),
             Column::computed('action')
                     ->exportable(false)
                     ->printable(false)

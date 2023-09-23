@@ -12,7 +12,10 @@ class Category extends Model
     protected $table = "categories";
     
     protected $fillable = [
-        'name'
+        'name',
+        'image1',
+        'image2',
+        'image3'
     ];
 
     //With Product Model

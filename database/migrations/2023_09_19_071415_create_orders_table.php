@@ -12,10 +12,13 @@ return new class extends Migration
             $table->id();
             $table->string('address');
             $table->date('date');
-            $table->float('total');
             $table->string('status');
 
             $table->unsignedBigInteger('user_id');
+
+            $table->unsignedBigInteger('cart_id');
+
+            $table->unsignedBigInteger('discount_id');
 
             $table->timestamps();
 
@@ -25,6 +28,15 @@ return new class extends Migration
                     ->on('users')
                     ->onDelete('cascade');
 
+            $table->foreign('cart_id')
+                    ->references('id')
+                    ->on('carts')
+                    ->onDelete('cascade');
+
+            $table->foreign('discount_id')
+                    ->references('id')
+                    ->on('discount')
+                    ->onDelete('cascade');
         });
     }
 

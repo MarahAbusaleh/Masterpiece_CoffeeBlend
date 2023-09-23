@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function () {
-    return view('Admin.Pages.category.create');
+    return view('Admin.Pages.category.index');
 });
 
 Route::resource('category', CategoryController::class);

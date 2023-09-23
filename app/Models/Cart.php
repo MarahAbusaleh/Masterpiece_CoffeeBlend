@@ -9,6 +9,7 @@ class Cart extends Model
 {
     use HasFactory;
 
+    protected $table = 'carts';
     //With User Model (M:1)
     public function user() 
     {
@@ -16,7 +17,7 @@ class Cart extends Model
     }
 
     //With Product Model (M:1)
-    public function products() 
+    public function product() 
     {
         return $this->belongsTo(Product::class);
     }
@@ -25,5 +26,11 @@ class Cart extends Model
     public function menu()
     {
         return $this->belongsTo(Menu::class);
+    }
+
+    //With Order Model (1:M)
+    public function order() 
+    {
+        return $this->hasOne(Order::class);
     }
 }
